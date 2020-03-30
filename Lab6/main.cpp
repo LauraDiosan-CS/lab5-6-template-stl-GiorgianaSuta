@@ -1,6 +1,6 @@
 #include <iostream>
-#include "Produs.h"
-#include "test.h"
+#include "Carte.h"
+
 #include "repo.h"
 
 using namespace std;
@@ -12,39 +12,39 @@ void menu() {
 }
 
 int main() {
-	test();
-	Repo rep;
-	int n = rep.size();
+	//test();
+	Repo<Carte> rep;
 	bool gata = false;
 	while (!gata)
 	{
 		cout << endl;
 		cout << "Optiuni:" << endl;
-		cout << "1. Adauga produs" << endl;
-		cout << "2. Afisare produse " << endl;
+		cout << "1. Adauga carte" << endl;
+		cout << "2. Afisare carti " << endl;
 		cout << "0. Exit!" << endl;
 		cout << "Introduceti opiunea:" << endl;
 		int optiune;
 		cin >> optiune;
 		if (optiune == 1)
 		{
-			char cod[100];
-			cout << " Codul este:  " << endl;
-			cin >> cod;
-			char nume[100];
-			cout << " Numele este: ";
-			cin >> nume;
-			int pret;
-			cout << "Pretul este: " << endl;
-			cin >> pret;
-			Produs p1(cod, nume, pret);
-			rep.addProdus(p1);
+			char titlu[100];
+			cout << " Ttilul este:  " << endl;
+			cin >> titlu;
+			char autor[100];
+			cout << " Autorul este: ";
+			cin >> autor;
+			char status[100];
+			cout << "Statusul  este: " << endl;
+			cin >> status;
+			Carte c1(titlu, autor, status);
+			rep.addCarte(c1);
 		}
 		if (optiune == 2)
 		{
-			vector<Produs> produse = rep.getAll();
-			for (Produs p : produse)
-				cout << p;
+			int n = rep.size();
+			deque<Carte> carti = rep.getAll();
+			for (int i = 0; i < n; i++)
+				cout << carti[i] << endl;
 		}
 		if (optiune == 0)
 		{
