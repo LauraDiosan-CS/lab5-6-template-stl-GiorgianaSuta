@@ -51,7 +51,12 @@ void UI::afisare() {
 	for (int i = 0; i < n; i++)
 		cout << carti[i] << endl;
 }
-
+void UI::imprumutat() {
+	char* titlu = new char[100];
+	cout << " Titlul  cartii de imprumutat este:  " << endl;
+	cin >> titlu;
+	this->service.imprumut(titlu);
+}
 void UI::run() {
 	int optiune;
 	bool ok = true;
@@ -63,7 +68,7 @@ void UI::run() {
 		cin >> optiune;
 		if (optiune == 1) {
 			this->addCarte();
-			//this->afisare();
+			this->afisare();
 		}
 		if (optiune == 2)
 			this->afisare();
@@ -74,6 +79,11 @@ void UI::run() {
 		if (optiune == 4) {
 			this->updateCarte();
 			this->afisare();
+		}
+		if (optiune == 5)
+		{
+			this->imprumutat();
+			
 		}
 		if (optiune == 0)
 			break;

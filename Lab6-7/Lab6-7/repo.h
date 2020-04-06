@@ -5,7 +5,7 @@
 using namespace std;
 template<class Carte>
 class Repo {
-private:
+protected:
 	deque<Carte> carti;
 
 public:

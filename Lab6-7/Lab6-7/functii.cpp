@@ -8,6 +8,7 @@ void menu() {
 	cout << "2. Afisare carti " << endl;
 	cout << "3. Stergere carte" << endl;
 	cout << "4. Modificare carte" << endl;
+	cout << "5. Imprumutare carte" << endl;
 	cout << "0. Exit!" << endl;
 	cout << "Introduceti opiunea:" << endl;
 }
