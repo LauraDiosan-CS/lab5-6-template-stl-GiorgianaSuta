@@ -1,6 +1,6 @@
 #include <iostream>
 #include <string.h>
-#include "Carte.h"
+#include "carte.h"
 
 using namespace std;
 
@@ -16,7 +16,7 @@ Carte::Carte(const char* titlu, const char* autor, const char* status)
 	strcpy_s(this->titlu, strlen(titlu) + 1, titlu);
 	this->autor = new char[strlen(autor) + 1];
 	strcpy_s(this->autor, strlen(autor) + 1, autor);
-	this->status = new char[strlen(status)+1];
+	this->status = new char[strlen(status) + 1];
 	strcpy_s(this->status, strlen(status) + 1, status);
 }
 Carte::Carte(const Carte& c)
@@ -24,7 +24,7 @@ Carte::Carte(const Carte& c)
 	this->titlu = new char[strlen(c.titlu) + 1];
 	strcpy_s(this->titlu, 1 + strlen(c.titlu), c.titlu);
 	this->autor = new char[strlen(c.autor) + 1];
-	strcpy_s(this->autor, 1 + strlen(c.autor),c.autor);
+	strcpy_s(this->autor, 1 + strlen(c.autor), c.autor);
 	this->status = new char[strlen(c.status) + 1];
 	strcpy_s(this->status, 1 + strlen(c.status), c.status);
 
@@ -90,13 +90,13 @@ Carte::~Carte() {
 	this->titlu = NULL;
 	if (this->autor != NULL)
 		delete[] autor;
-	this->autor= NULL;
+	this->autor = NULL;
 	if (this->status != NULL)
 		delete[] status;
 	this->status = NULL;
 }
 ostream& operator<<(ostream& os, const Carte& c)
 {
-	os << "Carte - " << c.titlu<< "-" << c.autor << "-" << c.status;
+	os << "Carte - " << c.titlu << "-" << c.autor << "-" << c.status;
 	return os;
 }

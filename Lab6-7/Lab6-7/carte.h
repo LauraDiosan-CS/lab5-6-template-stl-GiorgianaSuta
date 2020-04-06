@@ -8,7 +8,7 @@ private:
 	char* status;
 public:
 	Carte();
-	Carte(const char*, const char*,const char* );
+	Carte(const char*, const char*, const char*);
 	Carte(const Carte&);
 	char* getTitlu();
 	char* getAutor();
