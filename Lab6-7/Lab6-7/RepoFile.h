@@ -14,7 +14,10 @@ public:
 	RepoFile();
 	RepoFile(const char* fileNameIn, const char* fileNameOut);
 	void load_from_file();
-	
+	void saveToFile(const char*);
+	void addCarte(Carte);
+	void deleteCarte(Carte);
+	void updateCarte(Carte, Carte);
 	void setFileIn(const char* fileNameIn);
 	void setFileOut(const char* fileNameOut);
 	~RepoFile();
@@ -70,6 +73,37 @@ void RepoFile<T>::load_from_file()
 		f.close();
 	}
 }
+
+template<class T>
+ void RepoFile<T>::addCarte(Carte c)
+{
+	Repo<T>::addCarte(c);
+	saveToFile(fileNameOut);
+}
+ template<class T>
+ inline void RepoFile<T>::deleteCarte(Carte c)
+ {
+	 Repo<T>::deleteCarte(c);
+	 saveToFile(fileNameOut);
+ }
+ template<class T>
+ inline void RepoFile<T>::updateCarte(Carte c, Carte c1)
+ {
+	 Repo<T>::updateCarte(c, c1);
+	 saveToFile(fileNameOut);
+ }
+ template<class T>
+ void RepoFile<T>::saveToFile(const char* fileNameOut) {
+	 if (fileNameOut != NULL)
+	 {
+		 ofstream f(fileNameOut);
+		 for (size_t i = 0; i < this->carti.size(); i++)
+		 {
+			 f << this->carti[i] << endl;
+		 }
+		 f.close();
+	 }
+ }
 
 template<class T>
 RepoFile<T>::~RepoFile(){}

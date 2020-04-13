@@ -108,6 +108,7 @@ void Service::returnare(char* titlu)
 			cin >> titlu1;
 
 			this->returnare(titlu1);
+			ok = false;
 		}
 	}
 	

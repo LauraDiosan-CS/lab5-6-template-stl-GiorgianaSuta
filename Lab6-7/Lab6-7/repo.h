@@ -15,7 +15,6 @@ public:
 	void deleteCarte(T);
 	void updateCarte(T& c, T &newC);
 	int findCarte(T);
-	void saveToFile(const char* );
 	deque<T> getAll();
 	~Repo();
 	int size();
@@ -29,7 +28,7 @@ template<class T>
 void Repo<T>::addCarte(T carte)
 {
 	this->carti.push_back(carte);
-	this->saveToFile("cartiOut.txt");
+	
 }
 
 template<class T>
@@ -39,7 +38,7 @@ void Repo<T>::deleteCarte(T carte) {
 	if (it != carti.end()) {
 		carti.erase(it);
 	}
-	this->saveToFile("cartiOut.txt");
+
 }
 
 template<class T>
@@ -60,7 +59,7 @@ void Repo<T>::updateCarte(T& carte, T & newC) {
 	{
 		(*it) = newC;
 	}
-	this->saveToFile("cartiOut.txt");
+	
 }
 
 template<class T>
@@ -73,18 +72,7 @@ deque<T> Repo<T>::getAll() {
 	return deque<T>();
 }
 
-template<class T>
-void Repo<T>::saveToFile(const char* fileNameOut) {
-	if (fileNameOut != NULL)
-	{
-		ofstream f(fileNameOut);
-		for (size_t i = 0; i < this->carti.size(); i++)
-		{
-			f << this->carti[i] << endl;
-		}
-		f.close();
-	}
-}
+
 
 template<class T>
 Repo<T>::~Repo() {}
