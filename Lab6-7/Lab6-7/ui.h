@@ -3,12 +3,13 @@
 class UI {
 public:
 	void run();
-	
+	void setService(const Service&);
 private:
 	Service service;
 	void addCarte();
 	void deleteCarte();
 	void updateCarte();
 	void afisare();
-	void imprumutat();
+	void imprumut();
+	void returnare();
 };

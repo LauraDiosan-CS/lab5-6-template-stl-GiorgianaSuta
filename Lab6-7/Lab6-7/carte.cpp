@@ -79,7 +79,7 @@ Carte& Carte:: operator=(const Carte& c)
 }
 bool Carte:: operator == (const Carte& c)
 {
-	if (strcmp(titlu, c.titlu) == 0 && strcmp(autor, c.autor) == 0 && strcmp(status, c.status) == 0)
+	if (strcmp(titlu, c.titlu) == 0 ) 
 		return true;
 	return false;
 
@@ -99,4 +99,24 @@ ostream& operator<<(ostream& os, const Carte& c)
 {
 	os << "Carte - " << c.titlu << "-" << c.autor << "-" << c.status;
 	return os;
+}
+istream& operator >>(istream& is, Carte& c)
+{
+	char* titlu = new char[20];
+	is >> titlu;
+	if (strlen(titlu) == 0)
+	{
+		return is;
+	}
+	c.setTitlu(titlu);
+	char* autor = new char[20];
+	is >> autor;
+	c.setAutor(autor);
+	char* status = new char[20];
+	is >> status;
+	c.setStatus(status);
+	delete[] titlu;
+	delete[] autor;
+	delete[] status;
+	return is;
 }

@@ -141,6 +141,7 @@
     <ClInclude Include="carte.h" />
     <ClInclude Include="functii.h" />
     <ClInclude Include="repo.h" />
+    <ClInclude Include="RepoFile.h" />
     <ClInclude Include="service.h" />
     <ClInclude Include="test.h" />
     <ClInclude Include="ui.h" />
@@ -149,10 +150,13 @@
     <ClCompile Include="carte.cpp" />
     <ClCompile Include="functii.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="repo.cpp" />
     <ClCompile Include="service.cpp" />
     <ClCompile Include="test.cpp" />
     <ClCompile Include="ui.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="carti.txt" />
+    <Text Include="cartiOut.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
